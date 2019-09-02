@@ -16,7 +16,6 @@ h2{
 #toggle-form:checked~form{
     display: flex;
     height: 32vw;
-    min-height: 30vh;
 }
 label[for="toggle-form"]{
     display: block;
@@ -227,7 +226,7 @@ footer h3{
     }
 }
 @media (min-width:1024px){
-    .work,.contact,footer{
+    .work,footer{
         max-height: 100vh;
     }
     .work{
