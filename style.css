@@ -16,6 +16,7 @@ h2{
 #toggle-form:checked~form{
     display: flex;
     height: 32vw;
+    min-height: 30vh;
 }
 label[for="toggle-form"]{
     display: block;
@@ -64,7 +65,7 @@ form>label[for="toggle-form"]{
 }
 .contact{
     background-color: #1287bf;
-    padding-bottom: 9.8vw;
+    padding-bottom: 15vw;
 }
 .contact__header{
     min-height: 10.7vw;
@@ -81,6 +82,8 @@ form>label[for="toggle-form"]{
     margin: 0 auto;
     background: #fff;
     margin-top: 2.5rem;
+    padding: 1.5% 0 1.5% 0;
+    box-sizing: content-box;
 }
 .contact__form::before{
     content: "";
@@ -111,10 +114,9 @@ box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
     text-transform: capitalize;
 }
 .contact__form input[type^="t"]{
-    padding:2.5%;
+    padding:2%;
 }
 .contact__form input[type="submit"],.footer__form input[type="submit"]{
-    margin: 5% auto;
     border: 0px;
     text-transform: uppercase;
     color: #fff;
@@ -133,7 +135,7 @@ box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
     padding: 1.5% 2.5%;
 }
 .contact__form p{
-    padding: 1.5rem 12%;
+    padding: 1.5% 12%;
     text-align: center;
     margin: 1rem 0;
 }
@@ -190,8 +192,11 @@ footer h3{
         height: 50%;
         width: 100%;
     }
-    #toggle-form:checked~form{
-        height: 50vh;
+    #toggle-form:checked~.contact__form{
+        min-height: 50vh;
+    }
+    .contact__form p{
+        font-size: 0.7rem;
     }
 }
 @media (min-width:800px){
