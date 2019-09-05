@@ -3,18 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    font-family: "Roboto Slab", serif;
+}
 h2,h3,h4,h5,small{
     text-align: center;
     color:white;
+    font-weight: 400;
+}
+h3,p,small, .form__input{
+    font-weight:300;
+}
+p,small, .form__input{
+    font-size: 0.6rem;
 }
 h2{
     padding-top:2rem;
+}
+h3{
+    font-size: 0.8rem;
 }
 #toggle-form{
     display: none;
 }
 #toggle-form:checked~form{
     display: flex;
+    display: -ms-flexbox;
     height: 32vw;
 }
 label[for="toggle-form"]{
@@ -24,19 +38,20 @@ label[for="toggle-form"]{
     height: 3rem;
     border-radius: 50%;
     border: 2px solid #fff;
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem 0;
-    font-size: 3rem;
-    font-family: monospace;
+   background-image: url("./img/down.png");
+   background-size: 50%;
+   background-repeat: no-repeat;
+   background-position: center;
 }
 form>label[for="toggle-form"]{
-    padding: 0.2rem 0;
     background: #de2b24;
-    font-size: 2rem;
     position: absolute;
     top:-1.5rem;
     right: -1.5rem;
+    background-image: url("./img/close.png");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .work{
     background-color: #de2b24;
@@ -53,9 +68,22 @@ form>label[for="toggle-form"]{
 }
 .project__header{
     background-color: #f35e59;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
-.project__header,.project__image{
+.project__image,.project__icon{
     display: block;
+}
+.project__icon{
+    margin: 0 auto;
+    width: 3rem;
+    height: 3rem;
+    background-image: url("./img/icon7.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .project__image img{
     display: block;
@@ -70,6 +98,7 @@ form>label[for="toggle-form"]{
     min-height: 10.7vw;
 }
 .contact__form, .footer__form{
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 1%;
@@ -93,57 +122,49 @@ form>label[for="toggle-form"]{
     top:-2rem;
     left: 50%;
     margin-left: -1.5rem;
-    background-color: #fff;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    /*background-color: #fff;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);*/
+    background-image: url("./img/triangle.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.contact__form input, .footer__form input{
+.form__input{
     margin: 0 auto;
     display: block;
     border-radius: 1%;
     border: 1px solid #d8d8d8;
-}
-.contact__form input:focus, .footer__form input:focus{
-    border-color: #1287bf;
-    -webkit-box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
--moz-box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
-box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
-}
-.contact__form input[type^="t"],.footer__form input[type="email"]{
     width: 65%;
     text-transform: capitalize;
+    padding:1rem;
 }
-.contact__form input[type^="t"]{
-    padding:2%;
+.form__input:focus,.form__input:active{
+    border-color: #1287bf;
+    -webkit-box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
+    -moz-box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
+    box-shadow: 0px -1px 5px 0.5px rgba(18,135,191,0.6);
 }
-.contact__form input[type="submit"],.footer__form input[type="submit"]{
+.form__submit{
     border: 0px;
     text-transform: uppercase;
     color: #fff;
-    font-weight: bold;
-}
-.footer__form input[type="email"]{
-    color:#818181;
-}
-.footer__form input[type="email"],.footer__form input[type="submit"],small {
-    padding: 1%;
-    background: #515151;
-    border: 0;
-}
-.contact__form input[type="submit"]{
     background: #de2b24;
-    padding: 1.5% 2.5%;
+    padding: 0.5rem;
+    align-self:center;
 }
+
 .contact__form p{
     padding: 1.5% 12%;
     text-align: center;
     margin: 1rem 0;
 }
 footer{
-    min-height: 40vw;
     display: flex;
+    display: -ms-flexbox;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
     background-color: #2a2a2a;
+    position: relative;
 }
 .footer__nav ul{
     display: flex;
@@ -157,9 +178,13 @@ footer{
     background-repeat: no-repeat;
     background-position: center;
 }
-.footer__link, .footer__form input[type="submit"]{
-    border: 1px solid #515151;
+.footer__link:hover, .footer__link:active{
+    border-color: #de2b24;
+}
+.footer__link, .footer__form .form__submit{
+    border: 2px solid #515151;
     background-color: #2a2a2a;
+    border-radius: 1%;
 }
 .footer__link:nth-child(1){
     background-image: url("./img/icon8.png");
@@ -173,9 +198,41 @@ footer{
 .footer__link:nth-child(4){
     background-image: url("./img/icon11.png");
 }
+.footer__link a{
+    display: block;
+    height: 100%;
+}
 footer h3{
     padding: 2% 0;
     color:#818181;
+}
+footer .form__input{
+    color:#818181;
+}
+.footer__form .form__input,small {
+    padding: 1rem;
+    background: #515151;
+    border: 0;
+}
+footer small{
+    justify-self: flex-end;
+}
+@media (max-width:350px){
+    html{
+        font-size: 14px;
+    }
+    label[for="toggle-form"]{
+        width: 2rem;
+        height: 2rem;
+    }
+    .footer__nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__link{
+        margin: 10px 0;
+        width: 50%;
+    }
 }
 @media (max-width:799px){
     .project-container{
@@ -191,11 +248,28 @@ footer h3{
         height: 50%;
         width: 100%;
     }
-    #toggle-form:checked~.contact__form{
-        min-height: 50vh;
-    }
     .contact__form p{
         font-size: 0.7rem;
+    }
+    .contact__form input{
+        width: 90%;
+    }
+    .footer__form>*{
+        margin-bottom: 10px;
+    }
+}
+@media (max-width:1023px){
+    .work__header{
+        min-height: 17vh;
+    }
+    .work{
+        padding-bottom: 5vh;
+    }
+    .contact__form{
+        width: 75%;
+    }
+    #toggle-form:checked~.contact__form{
+        min-height: 50vh;
     }
 }
 @media (min-width:800px){
@@ -213,19 +287,17 @@ footer h3{
     .project:nth-child(even) .project__header{
         order: +1;
     }
-}
-@media (max-width:1023px){
-    .work__header{
-        min-height: 17vh;
+    footer{
+        height: 40vw;
     }
-    .work{
-        padding-bottom: 5vh;
-    }
-    .contact__form{
-        width: 84%;
+    .footer__form{
+        height: 50%;
     }
 }
 @media (min-width:1024px){
+    html{
+        font-size: 1.5vw;
+    }
     .work,footer{
         max-height: 100vh;
     }
@@ -244,14 +316,14 @@ footer h3{
         height: 50%;
         flex-basis: 50%;
     }
+    .project:nth-child(even) .project__header{
+        order: 0;
+    }
     .project:nth-child(3) .project__header,.project:nth-child(4) .project__header{
         order: +1;
     }
     .contact__form{
         width: 48.8vw;
-    }
-    footer{
-        max-height: 100vh;
     }
     .footer__nav{
         width: 48.8%;
